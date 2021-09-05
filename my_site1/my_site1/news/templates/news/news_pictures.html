@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Коллекция на сайте{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <fif class="Collection">
+             <h1>Коллекция на сайте</h1>
+        </fif>
+        {% if collection %}
+            {% for el in collection %}
+                <div class="alert alert-pictures">
+                    <h3>{{ el.title }}</h3><br><br>
+                    <h4>{{ el.full_text }}</h4><br>
+                    <img src="{{ el.picture.url }}" width="800" height="1200" class='pics'>
+                </div>
+            {% endfor %}
+        {% else %}
+        <p>У вас нет коллекций!</p>
+        {% endif %}
+    </div>
+{% endblock %}

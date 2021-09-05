@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Видео на сайте{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <dif class="Video_name">
+              <g1>Видео коллекции на сайте</g1>
+        </dif>
+        {% if collection %}
+            {% for el in collection %}
+                <div class="alert alert-pictures">
+                    <h3>{{ el.title }}</h3>
+                    <video src="{{ el.file.url }}" controls></video>
+                </div>
+            {% endfor %}
+        {% else %}
+        <p>У вас нет видео!</p>
+        {% endif %}
+    </div>
+{% endblock %}
