@@ -1,14 +1,15 @@
 body {
     background #2c2c2c;
-    position: fixed;
 }
 
 aside {
     float: left;
     background: #181818;
-    width: 40%;
+    width: 30%;
     padding: 2.5%;
-    height: 100vh;
+    height: 200vh;
+    margin-top: -50px;
+    position: fixed;
     color: #fff;
     border-right: 5px solid #4d4d4d;
 }
@@ -46,29 +47,30 @@ main .features {
     color: #4682B4;
     margin-top: 60px;
     text-align: center;
-    margin-left: 600px;
+    margin-left: 300px;
     position: sticky;
 }
 
-main .features h1 {font.size: 100px; margin-left: 30%; margin-top: -40px;}
-main .features p {font-size: 1.7rem; width: 1000px; margin-left: 20%; margin-top: 50px; color: #4682B4;}
-main .features p1 {font-size: 1.7rem; width: 1000px; margin-left: 20%; margin-top: 50px; color: #4682B4;}
-main .features p2 {font-size: 1.7rem; width: 1000px; margin-left: 20%; margin-top: 50px; color: #4682B4;}
-main .features p3 {font-size: 1.7rem; width: 1000px; margin-left: 20%; margin-top: 50px; color: #4682B4;}
-main .features p4 {font-size: 1.7rem; width: 1000px; margin-left: 20%; margin-top: 50px; color: #4682B4;}
+main .features h1 {font.size: 1.7rem; margin-left: 20%; margin-top: -40px;}
+main .features p {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color: #4682B4;}
+main .features p1 {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color: #4682B4;}
+main .features p2 {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color: #4682B4;}
+main .features p3 {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color: #4682B4;}
+main .features p4 {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color: #4682B4;}
 
 
 .alert-warning {
     float: center;
     clear: both;
-    font-size: 25px;
+    font.size: 1.7rem;
+    margin-left: 45%;
     margin-top: 100px;
-    text-align: center;
-    width: 1000px;
+    position: sticky;
+    width: 500px;
 }
-alert alert-warning h3 {font-size: 1.7rem; max-width: 100px; margin-left: 20px auto; color: #4682B4;}
-alert alert-warning p {font-size: 1.7rem; max-width: 100px;  margin-left: 20px auto;  color: #4682B4;}
-alert alert-warning text {font-size: 1.7rem; max-width: 100px; margin-left: 20px auto; color: #4682B4;}
+alert alert-warning h3 {font-size: 1.7rem; margin-top: 20px auto; color: #4682B4;}
+alert alert-warning p {font-size: 1.1rem; margin-left: -500px; margin-top: 50px; color: #4682B4;}
+alert alert-warning text {font-size: 1.7rem; color: #4682B4;}
 .News h1{
     float: center;
     color: #4682B4;
@@ -95,7 +97,7 @@ alert alert-warning text {font-size: 1.7rem; max-width: 100px; margin-left: 20px
 .alert-pictures {
     float: left;
     position: relative;
-    margin-left: 500px;
+    margin-left: 50%;
     top: 60px;
 
 }
@@ -107,20 +109,18 @@ alert alert-warning text {font-size: 1.7rem; max-width: 100px; margin-left: 20px
 
 form {
     margin-left: 32%;
-    position: fixed;
     margin-top: 50px;
 }
 
 .Collection {
-    float: left;
+    float: center;
     color: #4682B4;
     position: sticky;
-    width: -200px;
     margin-left: 200px;
 }
 .Collection h1{
-    font-size: 60px;
+    font-size: 80px;
     clear: both;
     position: sticky;
-    margin-left: 500px;
+    margin-left: 300px;
 }
