@@ -8,14 +8,14 @@
         {% if news %}
             {% for el in news %}
                 <div class="alert alert-warning">
-                    <h3>{{ el.title }}</h3>
-                    <p>{{ el.anons }}</p>
+                    <h3>{{ el.title }}</h3><br>
+                    <anons>{{ el.anons }}</anons><br>
                     <text>{{ el.full_text }}</text><br>
                     <br><a href="{% url 'news-detail' el.id %}" class="btn btn-warning">Читать детальнее</a>
                 </div>
             {% endfor %}
         {% else %}
-            <p>У вас нет записей!</p>
+            <g>У вас нет записей!</g>
         {% endif %}
         {# Комментарий #}
     </div>

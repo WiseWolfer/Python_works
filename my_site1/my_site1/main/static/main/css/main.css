@@ -58,19 +58,24 @@ main .features p2 {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color:
 main .features p3 {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color: #4682B4;}
 main .features p4 {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color: #4682B4;}
 
-
 .alert-warning {
     float: center;
     clear: both;
-    font.size: 1.7rem;
+    font.size: 100px;
     margin-left: 45%;
-    margin-top: 100px;
+    margin-top: 80px;
     position: sticky;
+    text-align: center;
     width: 500px;
 }
-alert alert-warning h3 {font-size: 1.7rem; margin-top: 20px auto; color: #4682B4;}
-alert alert-warning p {font-size: 1.1rem; margin-left: -500px; margin-top: 50px; color: #4682B4;}
-alert alert-warning text {font-size: 1.7rem; color: #4682B4;}
+
+.alert-warning anons {
+    font-size: 25px;
+    margin-left: 10px;
+    margin-top: 50px;
+    color: #4682B4;
+}
+
 .News h1{
     float: center;
     color: #4682B4;
@@ -106,7 +111,6 @@ alert alert-warning text {font-size: 1.7rem; color: #4682B4;}
 .alert-pictures h4 {margin-left: -250px; position: relative; text-align: center;}
 .pics{margin-left: -250px;}
 
-
 form {
     margin-left: 32%;
     margin-top: 50px;
@@ -119,7 +123,7 @@ form {
     margin-left: 200px;
 }
 .Collection h1{
-    font-size: 80px;
+    font-size: 50px;
     clear: both;
     position: sticky;
     margin-left: 300px;
