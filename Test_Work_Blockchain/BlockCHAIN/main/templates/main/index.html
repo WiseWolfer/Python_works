@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+<!--отнаследовался от layout-->
+
+{% block tittle %}Главная страница BlockCHAIN!!!{% endblock %}
+
+{% block content %}
+<font color="White">
+    <center><h1>Главная страница BlockChain</h1></center>
+<div class = "container mt-4">
+    <form action= "/transactions" method="get">
+        <div style="margin-left:40px;">
+        <h2>Кнопка для отправки транзакции</h2>
+        <button class="btn btn-success" type="submit" name="transaction_btn">
+            <h2>Отправить транзакцию</h2>
+        </button>
+        <h2>Список транзакций: </h2>
+        </div>
+    </form>
+</div>
+{% endblock %}
