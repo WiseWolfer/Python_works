@@ -1,7 +1,12 @@
+import bitcoinrpc.authproxy
+import pycoin.networks.bitcoinish
 from django.shortcuts import render
-import pycoin
-import requests, json
 from bitcoinrpc.authproxy import AuthServiceProxy
+import requests
+from pycoin.networks.bitcoinish import create_bitcoinish_network
+from pycoin.symbols.btc import network
+
+
 
 
 def index(request):
@@ -30,10 +35,33 @@ def transactions(request):
         print(status)
         print('------------------------------------')
 
-        # запись транзакций в переменную в формат json и вывод их на экран(20 штук)
-        # * - возврат всех транзакций, второй аргумент число возвращаемых входящих транзакций
-        transactions = rpc_connection.listtransactions("*", 20)
-        print(transactions)
+        network = create_bitcoinish_network(symbol="ARG", network_name="Argentum",
+                                            subnet_name="mainnet", wif_prefix_hex="97",
+                                            address_prefix_hex="17", pay_to_script_prefix_hex="05",
+                                            bip32_prv_prefix_hex="0488ade4", bip32_pub_prefix_hex="0488b21e")
+
+        # Получение вывода неизрасходованных транзакций UTXO через API
+        response_UTXO = requests.api.get('https://bcschain.info/api/address/BEWRJgEgTBHSN8hndXnbjh1EnYT3jBFETc/utxo')
+        print(response_UTXO.text)
+
+        # генерация транзакции и ее подписание с помощью приватного ключа
+        # L1cVGCBhdeWrULDyndqLeoMkeADfx8CGm9APHKtb7KJ12YQ7Z81J - приватный ключ
+        my_wallet = 'BEWRJgEgTBHSN8hndXnbjh1EnYT3jBFETc'
+
+        # Генерация транзакции
+        money = 0.00000001
+        MY_ADDRESS = ['BEWRJgEgTBHSN8hndXnbjh1EnYT3jBFETc']
+        key = pycoin.networks.bitcoinish.Key('BEWRJgEgTBHSN8hndXnbjh1EnYT3jBFETc')
+        print(key)
+        tx = 'ed980aeca8f1fd127ffaddd833ddb67feb761477d490a12ade2f5f7bb178173c'
+        signed_tx = pycoin.networks.bitcoinish.sign_tx(network, tx, ['L1cVGCBhdeWrULDyndqLeoMkeADfx8CGm9APHKtb7KJ12YQ7Z81J'])
+        print(signed_tx)
+        # отправка в блокчейн с помощью апи
+        url = 'https://bcschain.info/pushtx'
+        hex_tx = ''
+        x = requests.post(url, data={'tx': hex_tx})
+        result = x.text
+        print(result)
 
         # возврат на сайт во фронтенде
         return render(request, 'main/index.html')
