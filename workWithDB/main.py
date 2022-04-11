@@ -8,8 +8,7 @@ if __name__ == '__main__':
                                user='Dimacik',
                                password='worldoftanks228F',
                                host='127.0.0.1',
-                               port="5432"
-                               )
+                               port="5432")
         print("Соединение с БД успешно установлено!")
         # создал курсор для работы с бд
         cursor = connection.cursor()
@@ -17,6 +16,15 @@ if __name__ == '__main__':
         connection.commit()
         records = cursor.fetchall()
         print('Данные из бд:', records)
+        cursor.execute("Insert into employees(employee_id, employee_name, salary)"
+        "Values(2,'Maximka', 60000)")
+        cursor.execute('''Select * from employees;''')
+        connection.commit()
+        records = cursor.fetchall()
+
+        cursor.execute("DELETE from employees where employee_id = 2;")
+        connection.commit()
+
     # если ошибка в запросе
     except(Exception, Error) as er:
         print("Ошибка при работе с PostgreSQL", er)

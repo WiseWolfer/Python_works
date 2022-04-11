@@ -38,8 +38,8 @@ if __name__ == '__main__':
     for i in ORGANIZATIONS:
         problem += lpSum(variables[i][j] for j in
                          REPAIR_WORKS) == 1
-    # A3 don't do B3
-    problem += variables['A3']['B3'] == 0, "1"
+    # Organization A3 don't do work B1
+    problem += variables['A3']['B1'] == 0, "1"
     status = problem.solve()
     print(status)
     print("Результат:")

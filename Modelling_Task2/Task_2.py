@@ -50,9 +50,9 @@ if __name__ == '__main__':
     problem = pulp.LpProblem('0', LpMinimize)
     problem += costs, "Function"
     # csontraints на мощности балластных карьеров
-    problem += v11 + v12 + v13 + v14 == a1
-    problem += v21 + v22 + v23 + v24 == a2
-    problem += v31 + v32 + v33 + v34 == a3
+    problem += v11 + v12 + v13 + v14 <= a1
+    problem += v21 + v22 + v23 + v24 <= a2
+    problem += v31 + v32 + v33 + v34 <= a3
     # csontraints на потребности участков строящейся
     problem += v11 + v21 + v31 == b1
     problem += v12 + v22 + v32 == b2
