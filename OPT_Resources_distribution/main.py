@@ -48,6 +48,7 @@ if __name__ == '__main__':
     # определяем максимальный объём ресурсов
     C = max(workers_distribution)
     time_in_obj = int(input("Введите сколько времени могут работать электромонтажники на объектах: "))
+    # Неизвестные
     variables = np.array([
         [pulp.LpVariable("v11", lowBound=0, cat='Binary'),
          pulp.LpVariable("v12", lowBound=0, cat='Binary'),
