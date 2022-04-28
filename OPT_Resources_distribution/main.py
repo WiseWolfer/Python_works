@@ -1,3 +1,4 @@
+from numpy import ndarray
 from pulp import *
 import numpy as np
 
@@ -33,18 +34,57 @@ if __name__ == '__main__':
         time_of_work.append(i)
     for j in Volume_CMR_dict.values():
         Cost_of_volume_CMR.append(j)
-    time_of_work_dict_total = [[i*j for i in time_of_work] for j in house_properties]
-    table_of_volume_CMR = [[i*j for i in Cost_of_volume_CMR] for j in house_properties]
+    time_of_work_dict_total = [[i * j for i in time_of_work] for j in house_properties]
+    table_of_volume_CMR = [[i * j for i in Cost_of_volume_CMR] for j in house_properties]
     time_of_work_dict_total = np.sum(time_of_work_dict_total, axis=1)
     table_of_volume_CMR = np.sum(table_of_volume_CMR, axis=1)
     # варианты распределения работников
-    workers_distribution = [10, 18, 20]
+    workers_distribution = [10, 20, 30, 40]
     # таблица рабочих и времени работы на пяти объектах.
-    time_of_electric_works = np.array([[round(i / j) for i in time_of_work_dict_total]
-                                       for j in workers_distribution])
+    time_of_electric_works = np.array([
+        [time_of_work_dict_total[0] / workers_distribution[0] / 1.03,
+         time_of_work_dict_total[1] / workers_distribution[0] / 1.03,
+         time_of_work_dict_total[2] / workers_distribution[0] / 1.03,
+         time_of_work_dict_total[3] / workers_distribution[0] / 1.03,
+         time_of_work_dict_total[4] / workers_distribution[0] / 1.03],
+        [time_of_work_dict_total[0] / workers_distribution[1] * 1.04,
+         time_of_work_dict_total[1] / workers_distribution[1] * 1.04,
+         time_of_work_dict_total[2] / workers_distribution[1] * 1.04,
+         time_of_work_dict_total[3] / workers_distribution[1] * 1.04,
+         time_of_work_dict_total[4] / workers_distribution[1] * 1.04],
+        [time_of_work_dict_total[0] / workers_distribution[2] * 1.05,
+         time_of_work_dict_total[1] / workers_distribution[2] * 1.05,
+         time_of_work_dict_total[2] / workers_distribution[2] * 1.05,
+         time_of_work_dict_total[3] / workers_distribution[2] * 1.05,
+         time_of_work_dict_total[4] / workers_distribution[2] * 1.05],
+        [time_of_work_dict_total[0] / workers_distribution[3],
+         time_of_work_dict_total[1] / workers_distribution[3],
+         time_of_work_dict_total[2] / workers_distribution[3],
+         time_of_work_dict_total[3] / workers_distribution[3],
+         time_of_work_dict_total[4] / workers_distribution[3]]])
+    print(time_of_electric_works)
     # таблица рабочих и объёмов СМР, распределенных по пяти объектам.
-    table_of_volume_CMR_with_brigades = [[round(i / j) for i in table_of_volume_CMR]
-                                         for j in workers_distribution]
+    table_of_volume_CMR_with_brigades: ndarray = np.array([
+        [(table_of_volume_CMR[0] / workers_distribution[3] * workers_distribution[0]) * 1.03,
+         (table_of_volume_CMR[1] / workers_distribution[3] * workers_distribution[0]) * 1.03,
+         (table_of_volume_CMR[2] / workers_distribution[3] * workers_distribution[0]) * 1.03,
+         (table_of_volume_CMR[3] / workers_distribution[3] * workers_distribution[0]) * 1.03,
+         (table_of_volume_CMR[4] / workers_distribution[3] * workers_distribution[0]) * 1.03],
+        [(table_of_volume_CMR[0] / workers_distribution[3] * workers_distribution[1]) * 1.04,
+         (table_of_volume_CMR[1] / workers_distribution[3] * workers_distribution[1]) * 1.04,
+         (table_of_volume_CMR[2] / workers_distribution[3] * workers_distribution[1]) * 1.04,
+         (table_of_volume_CMR[3] / workers_distribution[3] * workers_distribution[1]) * 1.04,
+         (table_of_volume_CMR[4] / workers_distribution[3] * workers_distribution[1]) * 1.04],
+        [table_of_volume_CMR[0] / workers_distribution[3] * workers_distribution[2] * 1.05,
+         table_of_volume_CMR[1] / workers_distribution[3] * workers_distribution[2] * 1.05,
+         table_of_volume_CMR[2] / workers_distribution[3] * workers_distribution[2] * 1.05,
+         table_of_volume_CMR[3] / workers_distribution[3] * workers_distribution[2] * 1.05,
+         table_of_volume_CMR[4] / workers_distribution[3] * workers_distribution[2] * 1.05],
+        [table_of_volume_CMR[0] / workers_distribution[3] * workers_distribution[3],
+         table_of_volume_CMR[1] / workers_distribution[3] * workers_distribution[3],
+         table_of_volume_CMR[2] / workers_distribution[3] * workers_distribution[3],
+         table_of_volume_CMR[3] / workers_distribution[3] * workers_distribution[3],
+         table_of_volume_CMR[4] / workers_distribution[3] * workers_distribution[3]]])
     # определяем максимальный объём ресурсов
     C = max(workers_distribution)
     time_in_obj = int(input("Введите сколько времени могут работать электромонтажники на объектах: "))
@@ -64,8 +104,14 @@ if __name__ == '__main__':
          pulp.LpVariable("v32", lowBound=0, cat='Binary'),
          pulp.LpVariable("v33", lowBound=0, cat='Binary'),
          pulp.LpVariable("v34", lowBound=0, cat='Binary'),
-         pulp.LpVariable("v35", lowBound=0, cat='Binary')]
-        ])
+         pulp.LpVariable("v35", lowBound=0, cat='Binary')],
+        [pulp.LpVariable("v41", lowBound=0, cat='Binary'),
+         pulp.LpVariable("v42", lowBound=0, cat='Binary'),
+         pulp.LpVariable("v43", lowBound=0, cat='Binary'),
+         pulp.LpVariable("v44", lowBound=0, cat='Binary'),
+         pulp.LpVariable("v45", lowBound=0, cat='Binary')],
+    ])
+    print(variables)
     # формулировка задачи(цели) и ее максимизация
     problem = pulp.LpProblem('Volume_CMR_maximization', LpMaximize)
     # математическая запись целевой функции
@@ -73,7 +119,8 @@ if __name__ == '__main__':
     # Constraints(ограничения) по ресурсам
     problem += (np.sum(variables[0]) * workers_distribution[0] +
                 np.sum(variables[1]) * workers_distribution[1] +
-                np.sum(variables[2]) * workers_distribution[2]) == C
+                np.sum(variables[2]) * workers_distribution[2] +
+                np.sum(variables[3]) * workers_distribution[3]) == C
     # Constraints(ограничения) по работникам, на каждом объекте только 1 рабочий
     problem += np.sum(variables[:, 0]) <= 1
     problem += np.sum(variables[:, 1]) <= 1
@@ -100,4 +147,4 @@ if __name__ == '__main__':
             c = 0
         else:
             c += 1
-    print(f"Общий объём CМР на электромонтажные работы: {value(problem.objective)} тыс.руб.")
+    print(f"Общий объём CМР на электромонтажные работы: {round(value(problem.objective))} тыс.руб.")
