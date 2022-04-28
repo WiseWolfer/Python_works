@@ -62,7 +62,6 @@ if __name__ == '__main__':
          time_of_work_dict_total[2] / workers_distribution[3],
          time_of_work_dict_total[3] / workers_distribution[3],
          time_of_work_dict_total[4] / workers_distribution[3]]])
-    print(time_of_electric_works)
     # таблица рабочих и объёмов СМР, распределенных по пяти объектам.
     table_of_volume_CMR_with_brigades: ndarray = np.array([
         [(table_of_volume_CMR[0] / workers_distribution[3] * workers_distribution[0]) * 1.03,
