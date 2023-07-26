@@ -1,0 +1,130 @@
+body {
+    background #2c2c2c;
+}
+
+aside {
+    float: left;
+    background: #181818;
+    width: 30%;
+    padding: 2.5%;
+    height: 200vh;
+    margin-top: -50px;
+    position: fixed;
+    color: #fff;
+    border-right: 5px solid #4d4d4d;
+}
+
+aside img {
+    width: 400px;
+    position: sticky;
+    float: center;
+}
+
+aside h3{
+    margin-top: 80px;
+    margin-left: 80px;
+    font-size: 35px;
+}
+
+aside ul {list-style: none}
+aside ul li {
+    color #fff;
+    display: block;
+    margin-top: 30px;
+    margin-left: 100px;
+    font-size: 20px;
+    transition: transform .6s ease;
+}
+
+aside ui li:hover, aside ul a:hover {
+    color: #eb5959;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+main .features {
+    float: center;
+    color: #4682B4;
+    margin-top: 60px;
+    text-align: center;
+    margin-left: 300px;
+    position: sticky;
+}
+
+main .features h1 {font.size: 1.7rem; margin-left: 20%; margin-top: -40px;}
+main .features p {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color: #4682B4;}
+main .features p1 {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color: #4682B4;}
+main .features p2 {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color: #4682B4;}
+main .features p3 {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color: #4682B4;}
+main .features p4 {font-size: 1.7rem; margin-left: 20%; margin-top: 50px; color: #4682B4;}
+
+.alert-warning {
+    float: center;
+    clear: both;
+    font.size: 100px;
+    margin-left: 45%;
+    margin-top: 80px;
+    position: sticky;
+    text-align: center;
+    width: 500px;
+}
+
+.alert-warning anons {
+    font-size: 25px;
+    margin-left: 10px;
+    margin-top: 50px;
+    color: #4682B4;
+}
+
+.News h1{
+    float: center;
+    color: #4682B4;
+    font-size: 100px;
+    margin-left: -500px;
+    position: sticky;
+}
+
+.alert-contacts {
+    float: center;
+    font-size: 25px;
+    clear: both;
+    margin: 20px 20%;
+    text-align: left;
+    position: relative;
+}
+
+.alert-contacts h1 {
+    font.size: 100px;
+    margin-top: -20px;
+    margin-left: -10px;
+}
+
+.alert-pictures {
+    float: left;
+    position: relative;
+    margin-left: 50%;
+    top: 60px;
+
+}
+
+.alert-pictures h3 {margin-left: -250px; position: relative; text-align: center;}
+.alert-pictures h4 {margin-left: -250px; position: relative; text-align: center;}
+.pics{margin-left: -250px;}
+
+form {
+    margin-left: 32%;
+    margin-top: 50px;
+}
+
+.Collection {
+    float: center;
+    color: #4682B4;
+    position: sticky;
+    margin-left: 200px;
+}
+.Collection h1{
+    font-size: 50px;
+    clear: both;
+    position: sticky;
+    margin-left: 300px;
+}

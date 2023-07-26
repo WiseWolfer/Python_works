@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/python2_IM_MODELLING.iml" filepath="$PROJECT_DIR$/.idea/python2_IM_MODELLING.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../python3_IM_MODELLING/.idea/python3_IM_MODELLING.iml" filepath="$PROJECT_DIR$/../python3_IM_MODELLING/.idea/python3_IM_MODELLING.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../python4_IM_MODELLING/.idea/python4_IM_MODELLING.iml" filepath="$PROJECT_DIR$/../python4_IM_MODELLING/.idea/python4_IM_MODELLING.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../python5_IM_MODELLING/.idea/python5_IM_MODELLING.iml" filepath="$PROJECT_DIR$/../python5_IM_MODELLING/.idea/python5_IM_MODELLING.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../python6_IM_MODELLING/.idea/python6_IM_MODELLING.iml" filepath="$PROJECT_DIR$/../python6_IM_MODELLING/.idea/python6_IM_MODELLING.iml" />
+    </modules>
+  </component>
+</project>
