@@ -48,6 +48,7 @@ if __name__ == '__main__':
 
             # Вывод музыки
             vlc_path = 'C:\\Program Files\\VideoLAN\\VLC\\vlc.exe'
+            # Windows_media_player_path = 'C:\\Program Files (x86)\\Windows Media Player\\wmplayer.exe'
             subprocess.Popen([vlc_path, clip2])
             continue
 
@@ -91,7 +92,7 @@ if __name__ == '__main__':
             Windows_media_player_path = 'C:\\Program Files (x86)\\Windows Media Player\\wmplayer.exe'
             print(f"Сейчас играет {music_found_title}")
             subprocess.Popen([vlc_path, music_found_url])
-            # subprocess.Popen([Windows_media_player_path, track_result])
+            # subprocess.Popen([Windows_media_player_path, music_found_url])
             continue
         elif choice == 'выход':
             print('Работа программы завершена!')
