@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href= "{% static 'blog/css/styles.css' %}">
+</head>
+<body>
+
+<h1>Мой блог!</h1>
+
+{% for post in posts %}
+    <div class="container" style="background-image: url({% static 'blog/pictures/тест.jpg' %})">
+        <h3>{{ post.title }}</h3>
+        <div>
+            {{ post.content }}
+            <img src="{{ post.photo.url }}" alt="{{ post.title }}">
+        </div>
+        <p>{{ post.created_at|date:"Y-m-d" }}</p>
+    </div>
+    <hr>
+{% endfor %}
+
+
+</body>
+</html>
